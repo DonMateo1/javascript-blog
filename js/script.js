@@ -1,10 +1,12 @@
 'use strict';
 
-const { active } = require("browser-sync");
 
-function titleClickHandler(){
-    console.log('Link was clicked!');
-    console.log('event');
+
+function titleClickHandler(event){
+    const clickedElement = this;
+    clickedElement.classList.add('active');
+    console.log('Link was clicked!')
+    console.log('clickedElement (with plus): ' + clickedElement);
   }
     /* remove class 'active' from all article links  */
 const activeLinks = document.querySelectorAll(".titles a.active");
@@ -13,9 +15,9 @@ for (let activeLink of activeLinks){
     activeLink.classList.remove('active');
 }
   /* add class 'active' to the clicked link */
-
+  
   /* remove class 'active' from all articles */
-const activeArticles = document.querySelectorAll('.title .active')
+const activeArticles = document.querySelectorAll('.title a.active')
  for (let activeArticle of activeArticles){
      activeArticle.classList.remove('active');
  }
